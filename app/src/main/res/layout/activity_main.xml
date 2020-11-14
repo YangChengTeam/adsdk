@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/insert_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="插屏"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/express_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="信息流"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/insert_btn"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/reward_video_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="激励视频"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/express_btn"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/full_video_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全屏视频"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reward_video_btn"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/banner_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="横幅"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/full_video_btn"
+        android:layout_marginTop="20dp"/>
+
+
+    <FrameLayout
+        android:id="@+id/fl_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"></FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
