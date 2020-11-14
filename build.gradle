@@ -3,7 +3,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {url 'https://raw.githubusercontent.com/YangChengTeam/AdPlatformSDKExample/master/lib/AAR'}
+        maven {url 'https://raw.githubusercontent.com/YangChengTeam/adsdk/master/lib/AAR'}
 
     }
     dependencies {
@@ -18,7 +18,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {url 'https://raw.githubusercontent.com/YangChengTeam/AdPlatformSDKExample/master/lib/AAR'}
+        maven {url 'https://raw.githubusercontent.com/YangChengTeam/adsdk/master/lib/AAR'}
     }
 }
 

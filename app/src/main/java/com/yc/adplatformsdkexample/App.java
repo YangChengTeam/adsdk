@@ -4,10 +4,6 @@ import android.app.Application;
 
 import com.yc.adplatform.AdPlatformSDK;
 import com.yc.adplatform.ad.core.AdConfigInfo;
-import com.yc.adplatform.securityhttp.utils.LogUtil;
-import com.yc.adplatformsdkexample.hook.Hook;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class App extends Application {
 
@@ -37,6 +33,7 @@ public class App extends Application {
         adConfigInfo.setBanner("945573585");
         adConfigInfo.setInster("945568880");
         adConfigInfo.setRewardVideoHorizontal("945573588");
+        adConfigInfo.setOpen(true);
         adPlatformSDK.setAdConfigInfo(adConfigInfo);
 
         adPlatformSDK.init(this, "1", new AdPlatformSDK.InitCallback() {

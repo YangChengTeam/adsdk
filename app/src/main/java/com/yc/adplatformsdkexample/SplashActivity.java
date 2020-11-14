@@ -12,7 +12,6 @@ import com.whychl.TrickyCastle.R;
 import com.yc.adplatform.AdPlatformSDK;
 import com.yc.adplatform.ad.core.AdCallback;
 import com.yc.adplatform.ad.core.AdError;
-import com.yc.adplatform.securityhttp.utils.VUiKit;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -39,17 +38,7 @@ public class SplashActivity extends AppCompatActivity {
         });
         mFrameLayout = findViewById(R.id.fl_ad_container);
 
-        App.getApp().setInitCallback(new AdPlatformSDK.InitCallback() {
-            @Override
-            public void onAdInitSuccess() {
-                showSplash();
-            }
-
-            @Override
-            public void onAdInitFailure() {
-
-            }
-        });
+        showSplash();
     }
 
 
@@ -91,14 +80,9 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startMainActivity(long dealy) {
-        VUiKit.postDelayed(dealy, new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
