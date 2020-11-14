@@ -1,5 +1,4 @@
-# "小游戏SDK” 对接文档
-
+# "广告sdk” 对接文档
 
 - 示例
    -  [MainActivity.java](https://github.com/YangChengTeam/adsdk/blob/master/app/src/main/java/com/yc/adplatformsdkexample/MainActivity.java)
