@@ -89,7 +89,7 @@ public class STtAdSDk implements ISGameSDK {
         TTAdManagerHolder.get().createAdNative(mContext.get()).loadBannerExpressAd(adSlot, new TTAdNative.NativeExpressAdListener() {
             @Override
             public void onError(int code, String message) {
-                if (mSplashContainer != null) {
+                if (mSplashContainer != null && mSplashContainer.get() != null) {
                     mSplashContainer.get().removeAllViews();
                 }
                 AdError adError = new AdError();
@@ -134,7 +134,7 @@ public class STtAdSDk implements ISGameSDK {
                 new TTAdNative.NativeExpressAdListener() {
                     @Override
                     public void onError(int code, String message) {
-                        if (mSplashContainer != null) {
+                        if (mSplashContainer != null && mSplashContainer.get() != null) {
                             mSplashContainer.get().removeAllViews();
                         }
                         AdError adError = new AdError();
@@ -189,7 +189,7 @@ public class STtAdSDk implements ISGameSDK {
             @Override
             public void onRenderSuccess(View view, float width, float height) {
                 Log.e(TAG, "渲染成功 render suc:" + (System.currentTimeMillis() - startTime));
-                if (mSplashContainer != null) {
+                if (mSplashContainer != null && mSplashContainer.get() != null) {
                     mSplashContainer.get().removeAllViews();
                     mSplashContainer.get().addView(view);
                 }
@@ -244,7 +244,7 @@ public class STtAdSDk implements ISGameSDK {
             public void onSelected(int position, String value) {
                 //TToast.show(mContext, "反馈了 " + value);
                 //用户选择不喜欢原因后，移除广告展示
-                if (mSplashContainer != null) {
+                if (mSplashContainer != null && mSplashContainer.get() != null) {
                     mSplashContainer.get().removeAllViews();
                 }
             }
@@ -712,7 +712,7 @@ public class STtAdSDk implements ISGameSDK {
                 View view = ad.getSplashView();
 
                 ViewGroup viewGroup;
-                if (mSplashContainer != null) {
+                if (mSplashContainer != null && mSplashContainer.get() != null) {
                     viewGroup = mSplashContainer.get();
                 } else {
                     Activity activity = (Activity) mContext.get();
