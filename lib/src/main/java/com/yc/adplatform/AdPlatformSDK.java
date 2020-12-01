@@ -144,6 +144,7 @@ public class AdPlatformSDK {
     public void showSplashAd(Context context, int width, int height, AdCallback callback, FrameLayout containerView) {
         String adCode = adConfigInfo.getSplash();
         String adPosition = "ad_splash";
+        STtAdSDk.getImpl().setExpressSize(width, height);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
@@ -160,7 +161,7 @@ public class AdPlatformSDK {
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
-    public void showBannerAd(Context context, int width, int height, AdCallback callback, FrameLayout containerView) {
+    public void showBannerAd(Context context, int width, int height,  AdCallback callback, FrameLayout containerView) {
         STtAdSDk.getImpl().setBannerSize(width, height);
         String adCode = adConfigInfo.getBanner();
         String adPosition = "ad_banner";
@@ -175,7 +176,8 @@ public class AdPlatformSDK {
     }
 
 
-    public void showExpressAd(Context context, AdCallback callback, FrameLayout containerView) {
+    public void showExpressAd(Context context, int width, int height, AdCallback callback, FrameLayout containerView) {
+        STtAdSDk.getImpl().setExpressSize(width, height);
         String adCode = adConfigInfo.getExpress();
         String adPosition = "ad_express";
         showAd(context, AdType.EXPRESS, adPosition, adCode, callback, containerView);
