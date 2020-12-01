@@ -113,12 +113,21 @@ public class STtAdSDk implements ISGameSDK {
         });
     }
 
+
+    private int expressWidth = 500;
+    private int expressHeight = 200;
+
+    public void setExpressSize(int width, int height) {
+        this.expressWidth = width;
+        this.expressHeight = height;
+    }
+
     private void loadExpressAd(String feedId, AdCallback adCallback) {
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(feedId)
                 .setSupportDeepLink(true)
                 .setAdCount(3) //请求广告数量为1到3条
-                .setExpressViewAcceptedSize(254, 200)
+                .setExpressViewAcceptedSize(expressWidth, expressHeight)
                 .build();
 
         TTAdManagerHolder.get().createAdNative(mContext.get()).loadNativeExpressAd(adSlot,
