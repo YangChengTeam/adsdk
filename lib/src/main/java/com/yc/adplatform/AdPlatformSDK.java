@@ -141,69 +141,59 @@ public class AdPlatformSDK {
         showAd(context, adType, adPosition, adCode, callback, null);
     }
 
-    public void showSplashAd(Context context, int width, int height, AdCallback callback, FrameLayout containerView) {
+    public void showSplashAd(Context context, String adPosition, int width, int height, AdCallback callback, FrameLayout containerView) {
         String adCode = adConfigInfo.getSplash();
-        String adPosition = "ad_splash";
         STtAdSDk.getImpl().setExpressSize(width, height);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
-    public void showSplashVerticalAd(Context context, AdCallback callback, FrameLayout containerView) {
+    public void showSplashVerticalAd(Context context, String adPosition, AdCallback callback, FrameLayout containerView) {
         String adCode = adConfigInfo.getSplash();
-        String adPosition = "ad_splash";
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
-    public void showSplashHorizontalAd(Context context, AdCallback callback, FrameLayout containerView) {
+    public void showSplashHorizontalAd(Context context, String adPosition, AdCallback callback, FrameLayout containerView) {
         STtAdSDk.getImpl().setSplashSize(1920, 1080);
         String adCode = adConfigInfo.getSplash();
-        String adPosition = "ad_splash";
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
-    public void showBannerAd(Context context, int width, int height,  AdCallback callback, FrameLayout containerView) {
+    public void showBannerAd(Context context, String adPosition, int width, int height, AdCallback callback, FrameLayout containerView) {
         STtAdSDk.getImpl().setBannerSize(width, height);
         String adCode = adConfigInfo.getBanner();
-        String adPosition = "ad_banner";
         showAd(context, AdType.BANNER, adPosition, adCode, callback, containerView);
     }
 
-    public void showInsertAd(Context context, int width, int height, AdCallback callback) {
+    public void showInsertAd(Context context, String adPosition, int width, int height, AdCallback callback) {
         STtAdSDk.getImpl().setInsertSize(width, height);
         String adCode = adConfigInfo.getInster();
-        String adPosition = "ad_insert";
         showAd(context, AdType.INSERT, adPosition, adCode, callback);
     }
 
 
-    public void showExpressAd(Context context, int width, int height, AdCallback callback, FrameLayout containerView) {
+    public void showExpressAd(Context context, String adPosition,int width, int height, AdCallback callback, FrameLayout containerView) {
         STtAdSDk.getImpl().setExpressSize(width, height);
         String adCode = adConfigInfo.getExpress();
-        String adPosition = "ad_express";
         showAd(context, AdType.EXPRESS, adPosition, adCode, callback, containerView);
     }
 
-    public void showFullScreenVideoVerticalAd(Context context, AdCallback callback) {
+    public void showFullScreenVideoVerticalAd(Context context, String adPosition, AdCallback callback) {
         String adCode = adConfigInfo.getFullScreenVideoVertical();
-        String adPosition = "ad_full_screen_video";
         showAd(context, AdType.FULL_SCREEN_VIDEO_VERTICAL, adPosition, adCode, callback);
     }
 
-    public void showFullScreenVideoHorizontalAd(Context context, AdCallback callback) {
+    public void showFullScreenVideoHorizontalAd(Context context,String adPosition, AdCallback callback) {
         String adCode = adConfigInfo.getFullScreenVideoHorizontal();
-        String adPosition = "ad_full_screen_video";
         showAd(context, AdType.FULL_SCREEN_VIDEO_HORIZON, adPosition, adCode, callback);
     }
 
-    public void showRewardVideoVerticalAd(Context context, AdCallback callback) {
+    public void showRewardVideoVerticalAd(Context context, String adPosition, AdCallback callback) {
         String adCode = adConfigInfo.getRewardVideoVertical();
-        String adPosition = "ad_rewad_video";
         showAd(context, AdType.REWARD_VIDEO_VERTICAL, adPosition, adCode, callback);
     }
 
-    public void showRewardVideoHorizontalAd(Context context, AdCallback callback) {
+    public void showRewardVideoHorizontalAd(Context context, String adPosition, AdCallback callback) {
         String adCode = adConfigInfo.getRewardVideoHorizontal();
-        String adPosition = "ad_rewad_video";
         showAd(context, AdType.REWARD_VIDEO_HORIZON, adPosition, adCode, callback);
     }
 
