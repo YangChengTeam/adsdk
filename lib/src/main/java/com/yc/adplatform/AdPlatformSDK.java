@@ -137,7 +137,9 @@ public class AdPlatformSDK {
 
             @Override
             public void onLoaded() {
-
+                if (callback != null) {
+                    callback.onLoaded();
+                }
             }
         }, containerView);
     }
