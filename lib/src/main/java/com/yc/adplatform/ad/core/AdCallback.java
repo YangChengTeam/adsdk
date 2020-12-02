@@ -10,4 +10,6 @@ public interface AdCallback {
     void onPresent();
 
     void onClick();
+
+    void onLoaded();
 }

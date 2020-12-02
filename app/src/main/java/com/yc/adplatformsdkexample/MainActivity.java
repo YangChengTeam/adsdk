@@ -23,21 +23,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.reward_video_btn).setOnClickListener(this);
         findViewById(R.id.full_video_btn).setOnClickListener(this);
         findViewById(R.id.banner_btn).setOnClickListener(this);
+        final AdPlatformSDK adPlatformSDK = AdPlatformSDK.getInstance(this);
+        adPlatformSDK.loadInsertAd(this, "ad_insert", 900, 600, this);
+        adPlatformSDK.loadBannerAd(this, "ad_banner", 900, 300, this, (FrameLayout) findViewById(R.id.fl_ad_container));
+        adPlatformSDK.loadRewardVideoHorizontalAd(this, "ad_reward",  this);
     }
 
     @Override
     public void onClick(View view) {
         final AdPlatformSDK adPlatformSDK = AdPlatformSDK.getInstance(this);
         if (view.getId() == R.id.insert_btn) {
-            adPlatformSDK.showInsertAd(this,900, 600, this);
+            adPlatformSDK.showInsertAd();
         } else if (view.getId() == R.id.express_btn) {
-            adPlatformSDK.showExpressAd(this,this, (FrameLayout) findViewById(R.id.fl_ad_container));
         } else if (view.getId() == R.id.reward_video_btn) {
-            adPlatformSDK.showRewardVideoHorizontalAd(this,this);
+            adPlatformSDK.showRewardVideoAd();
         } else if (view.getId() == R.id.full_video_btn) {
-            adPlatformSDK.showFullScreenVideoVerticalAd(this, this);
+
         } else if (view.getId() == R.id.banner_btn) {
-            adPlatformSDK.showBannerAd(this, 300, 100, this,  (FrameLayout) findViewById(R.id.fl_ad_container));
+            adPlatformSDK.showBannerAd();
         }
     }
 

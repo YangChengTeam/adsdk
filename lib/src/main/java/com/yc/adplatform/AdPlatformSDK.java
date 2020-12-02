@@ -134,6 +134,11 @@ public class AdPlatformSDK {
                 }
                 sendClickLog(adPosition, adCode);
             }
+
+            @Override
+            public void onLoaded() {
+
+            }
         }, containerView);
     }
 
@@ -179,15 +184,15 @@ public class AdPlatformSDK {
         showAd(context, AdType.REWARD_VIDEO_HORIZON, adPosition, adCode, callback);
     }
 
-
     public void showSplashAd(Context context, String adPosition, int width, int height, AdCallback callback, FrameLayout containerView) {
         String adCode = adConfigInfo.getSplash();
-        STtAdSDk.getImpl().setExpressSize(width, height);
+        STtAdSDk.getImpl().setSplashSize(width, height);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
     public void showSplashVerticalAd(Context context, String adPosition, AdCallback callback, FrameLayout containerView) {
         String adCode = adConfigInfo.getSplash();
+        STtAdSDk.getImpl().setSplashSize(1080, 1920);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
@@ -197,26 +202,24 @@ public class AdPlatformSDK {
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
-    public void showBannerAd() {
-        STtAdSDk.getImpl().showBannerAd();
-
+    public boolean showBannerAd() {
+       return STtAdSDk.getImpl().showBannerAd();
     }
 
-    public void showInsertAd() {
-        STtAdSDk.getImpl().showInteractionAd();
+    public boolean showInsertAd() {
+        return STtAdSDk.getImpl().showInteractionAd();
     }
 
-    public void showExpressAd() {
-        STtAdSDk.getImpl().showExpressAd();
+    public boolean showExpressAd() {
+        return STtAdSDk.getImpl().showExpressAd();
     }
 
-    public void showFullScreenAd() {
-        STtAdSDk.getImpl().showFullScreenAd();
+    public boolean showFullScreenAd() {
+        return STtAdSDk.getImpl().showFullScreenAd();
     }
 
-    public void showRewardVideoAd() {
-        STtAdSDk.getImpl().showRewardVideoAd();
-
+    public boolean showRewardVideoAd() {
+        return STtAdSDk.getImpl().showRewardVideoAd();
     }
 
 }

@@ -208,6 +208,9 @@ public class STtAdSDk implements ISGameSDK {
             public void onRenderSuccess(View view, float width, float height) {
                 Log.e(TAG, "渲染成功 render suc:" + (System.currentTimeMillis() - startTime));
                 STtAdSDk.this.adview = view;
+                if(callback != null){
+                    callback.onLoaded();
+                }
             }
         });
         bindDislike(ad, false);
@@ -280,6 +283,7 @@ public class STtAdSDk implements ISGameSDK {
     public boolean showInteractionAd() {
         if (expressAd != null && mContext != null && mContext.get() != null) {
             expressAd.showInteractionExpressAd((Activity) (mContext.get()));
+            expressAd = null;
             return true;
         }
         return false;
@@ -361,8 +365,9 @@ public class STtAdSDk implements ISGameSDK {
             public void onRenderSuccess(View view, float width, float height) {
                 Log.e(TAG, "渲染成功 render suc:" + (System.currentTimeMillis() - startTime));
                 //返回view的宽高 单位 dp
-
-
+                if(callback != null){
+                    callback.onLoaded();
+                }
             }
         });
         bindDislike(ad, false);
@@ -518,6 +523,9 @@ public class STtAdSDk implements ISGameSDK {
                 Log.d(TAG, "onRewardVideoAdLoad: 激励视频广告 rewardVideoAd loaded 加载完成");
                 mttRewardVideoAd = ad;
                 //mttRewardVideoAd.setShowDownLoadBar(false);
+                if(callback != null){
+                    callback.onLoaded();
+                }
                 mttRewardVideoAd.setRewardAdInteractionListener(new TTRewardVideoAd.RewardAdInteractionListener() {
 
                     @Override
@@ -652,6 +660,9 @@ public class STtAdSDk implements ISGameSDK {
             @Override
             public void onFullScreenVideoAdLoad(TTFullScreenVideoAd ad) {
                 mttFullVideoAd = ad;
+                if(callback != null){
+                    callback.onLoaded();
+                }
                 mttFullVideoAd.setFullScreenVideoAdInteractionListener(new TTFullScreenVideoAd.FullScreenVideoAdInteractionListener() {
 
                     @Override
