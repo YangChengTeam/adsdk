@@ -159,9 +159,27 @@ public class STtAdSDk implements ISGameSDK {
     }
 
 
+    private View adview;
+    public boolean showBannerAd() {
+        if (mSplashContainer != null && mSplashContainer.get() != null && adview != null) {
+            mSplashContainer.get().removeAllViews();
+            mSplashContainer.get().addView(adview);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean showExpressAd() {
+        if (mSplashContainer != null && mSplashContainer.get() != null && adview != null) {
+            mSplashContainer.get().removeAllViews();
+            mSplashContainer.get().addView(adview);
+            return true;
+        }
+        return false;
+    }
+
     private void bindAdListenerExpress(TTNativeExpressAd ad, AdCallback callback) {
         ad.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() {
-
             @Override
             public void onAdClicked(View view, int type) {
                 Log.e(TAG, "广告被点击");
@@ -189,10 +207,7 @@ public class STtAdSDk implements ISGameSDK {
             @Override
             public void onRenderSuccess(View view, float width, float height) {
                 Log.e(TAG, "渲染成功 render suc:" + (System.currentTimeMillis() - startTime));
-                if (mSplashContainer != null && mSplashContainer.get() != null) {
-                    mSplashContainer.get().removeAllViews();
-                    mSplashContainer.get().addView(view);
-                }
+                STtAdSDk.this.adview = view;
             }
         });
         bindDislike(ad, false);
@@ -262,6 +277,14 @@ public class STtAdSDk implements ISGameSDK {
         });
     }
 
+    public boolean showInteractionAd() {
+        if (expressAd != null && mContext != null && mContext.get() != null) {
+            expressAd.showInteractionExpressAd((Activity) (mContext.get()));
+            return true;
+        }
+        return false;
+    }
+
     /**
      * 加载插屏广告
      */
@@ -298,9 +321,10 @@ public class STtAdSDk implements ISGameSDK {
         });
     }
 
-
+    private TTNativeExpressAd expressAd;
 
     private void bindAdListener(TTNativeExpressAd ad, AdCallback callback) {
+        expressAd = ad;
         ad.setExpressInteractionListener(new TTNativeExpressAd.AdInteractionListener() {
             @Override
             public void onAdDismiss() {
@@ -337,7 +361,7 @@ public class STtAdSDk implements ISGameSDK {
             public void onRenderSuccess(View view, float width, float height) {
                 Log.e(TAG, "渲染成功 render suc:" + (System.currentTimeMillis() - startTime));
                 //返回view的宽高 单位 dp
-                ad.showInteractionExpressAd((Activity) (mContext.get()));
+
 
             }
         });
@@ -382,7 +406,6 @@ public class STtAdSDk implements ISGameSDK {
             }
         });
     }
-
 
     //    private TTNativeExpressAd mTTAd;
     private long startTime = 0;
@@ -575,13 +598,28 @@ public class STtAdSDk implements ISGameSDK {
 
                     }
                 });
-                if (mttRewardVideoAd != null) {
-                    //step6:在获取到广告后展示
-                    mttRewardVideoAd.showRewardVideoAd((Activity) mContext.get());
-                    mttRewardVideoAd = null;
-                }
             }
         });
+    }
+
+    public boolean showRewardVideoAd() {
+        if (mttRewardVideoAd != null && mContext != null && mContext.get() != null) {
+            //step6:在获取到广告后展示
+            mttRewardVideoAd.showRewardVideoAd((Activity) mContext.get());
+            mttRewardVideoAd = null;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean showFullScreenAd() {
+        if (mttFullVideoAd != null && mContext != null && mContext.get() != null) {
+            //step6:在获取到广告后展示
+            mttFullVideoAd.showFullScreenVideoAd((Activity) mContext.get());
+            mttFullVideoAd = null;
+            return true;
+        }
+        return false;
     }
 
     private TTFullScreenVideoAd mttFullVideoAd;
@@ -645,11 +683,7 @@ public class STtAdSDk implements ISGameSDK {
                     }
 
                 });
-                if (mttFullVideoAd != null) {
-                    //step6:在获取到广告后展示
-                    mttFullVideoAd.showFullScreenVideoAd((Activity) mContext.get());
-                    mttFullVideoAd = null;
-                }
+
             }
 
             @Override
