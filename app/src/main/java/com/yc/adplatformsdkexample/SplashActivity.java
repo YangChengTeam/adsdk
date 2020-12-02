@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void showSplash() {
-        AdPlatformSDK.getInstance(this).showSplashVerticalAd(this, "ad_splash",new AdCallback() {
+        AdPlatformSDK.getInstance(this).showSplashHorizontalAd(this, "ad_splash",new AdCallback() {
             @Override
             public void onDismissed() {
                 startMainActivity(0);
@@ -66,6 +66,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick() {
                 isAdClick = true;
+            }
+
+            @Override
+            public void onLoaded() {
+
             }
         }, mFrameLayout);
     }

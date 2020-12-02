@@ -147,56 +147,66 @@ public class AdPlatformSDK {
     }
 
     public void loadBannerAd(Context context, String adPosition, int width, int height, AdCallback callback, FrameLayout containerView) {
+        if (adConfigInfo == null) return;
         STtAdSDk.getImpl().setBannerSize(width, height);
         String adCode = adConfigInfo.getBanner();
         showAd(context, AdType.BANNER, adPosition, adCode, callback, containerView);
     }
 
     public void loadInsertAd(Context context, String adPosition, int width, int height, AdCallback callback) {
+        if (adConfigInfo == null) return;
         STtAdSDk.getImpl().setInsertSize(width, height);
         String adCode = adConfigInfo.getInster();
         showAd(context, AdType.INSERT, adPosition, adCode, callback);
     }
 
     public void loadExpressAd(Context context, String adPosition,int width, int height, AdCallback callback, FrameLayout containerView) {
+        if (adConfigInfo == null) return;
         STtAdSDk.getImpl().setExpressSize(width, height);
         String adCode = adConfigInfo.getExpress();
         showAd(context, AdType.EXPRESS, adPosition, adCode, callback, containerView);
     }
 
     public void loadFullScreenVideoVerticalAd(Context context, String adPosition, AdCallback callback) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getFullScreenVideoVertical();
         showAd(context, AdType.FULL_SCREEN_VIDEO_VERTICAL, adPosition, adCode, callback);
     }
 
     public void loadFullScreenVideoHorizontalAd(Context context,String adPosition, AdCallback callback) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getFullScreenVideoHorizontal();
         showAd(context, AdType.FULL_SCREEN_VIDEO_HORIZON, adPosition, adCode, callback);
     }
 
     public void loadRewardVideoVerticalAd(Context context, String adPosition, AdCallback callback) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getRewardVideoVertical();
         showAd(context, AdType.REWARD_VIDEO_VERTICAL, adPosition, adCode, callback);
     }
 
     public void loadRewardVideoHorizontalAd(Context context, String adPosition, AdCallback callback) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getRewardVideoHorizontal();
         showAd(context, AdType.REWARD_VIDEO_HORIZON, adPosition, adCode, callback);
     }
 
     public void showSplashAd(Context context, String adPosition, int width, int height, AdCallback callback, FrameLayout containerView) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getSplash();
         STtAdSDk.getImpl().setSplashSize(width, height);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
     public void showSplashVerticalAd(Context context, String adPosition, AdCallback callback, FrameLayout containerView) {
+        if (adConfigInfo == null) return;
         String adCode = adConfigInfo.getSplash();
         STtAdSDk.getImpl().setSplashSize(1080, 1920);
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);
     }
 
     public void showSplashHorizontalAd(Context context, String adPosition, AdCallback callback, FrameLayout containerView) {
+        if (adConfigInfo == null) return;
         STtAdSDk.getImpl().setSplashSize(1920, 1080);
         String adCode = adConfigInfo.getSplash();
         showAd(context, AdType.SPLASH, adPosition, adCode, callback, containerView);

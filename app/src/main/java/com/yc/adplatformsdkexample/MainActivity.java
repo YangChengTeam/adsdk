@@ -68,4 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick() {
 
     }
+
+    @Override
+    public void onLoaded() {
+
+    }
 }
