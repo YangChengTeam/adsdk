@@ -162,6 +162,10 @@ public class STtAdSDk implements ISGameSDK {
     private View adview;
     public boolean showBannerAd() {
         if (mSplashContainer != null && mSplashContainer.get() != null && adview != null) {
+            ViewGroup viewGroup = (ViewGroup)adview.getParent();
+            if(viewGroup != null){
+                viewGroup.removeView(adview);
+            }
             mSplashContainer.get().removeAllViews();
             mSplashContainer.get().addView(adview);
             return true;
@@ -171,6 +175,10 @@ public class STtAdSDk implements ISGameSDK {
 
     public boolean showExpressAd() {
         if (mSplashContainer != null && mSplashContainer.get() != null && adview != null) {
+            ViewGroup viewGroup = (ViewGroup)adview.getParent();
+            if(viewGroup != null){
+                viewGroup.removeView(adview);
+            }
             mSplashContainer.get().removeAllViews();
             mSplashContainer.get().addView(adview);
             return true;
