@@ -38,7 +38,11 @@ public class AdPlatformSDK {
 
     private String mAppId;
     private String userId = "0";
+    private String adPosition;
 
+    public void setAdPosition(String adPosition) {
+        this.adPosition = adPosition;
+    }
 
     public void setAdConfigInfo(AdConfigInfo adConfigInfo) {
         this.adConfigInfo = adConfigInfo;
@@ -90,7 +94,7 @@ public class AdPlatformSDK {
         AdLog.sendLog(adConfigInfo.getIp(), 41234, mAppId, userId, adPosition, adCode, "show");
     }
 
-    private void showAd(Context context, AdType adType, String adPosition, String adCode, AdCallback callback, FrameLayout containerView) {
+    private void showAd(Context context, AdType adType, final String adPosition, String adCode, AdCallback callback, FrameLayout containerView) {
         if (adConfigInfo == null) return;
         if (!adConfigInfo.isOpen()) {
             Log.d(TAG, "广告未开启");
@@ -117,6 +121,7 @@ public class AdPlatformSDK {
                 if (callback != null) {
                     callback.onComplete();
                 }
+                AdPlatformSDK.this.adPosition = null;
             }
 
             @Override
@@ -124,7 +129,11 @@ public class AdPlatformSDK {
                 if (callback != null) {
                     callback.onPresent();
                 }
-                sendShowLog(adPosition, adCode);
+                String tmpAdPosition = adPosition;
+                if(AdPlatformSDK.this.adPosition != null){
+                    tmpAdPosition = AdPlatformSDK.this.adPosition;
+                }
+                sendShowLog(tmpAdPosition, adCode);
             }
 
             @Override
@@ -132,7 +141,11 @@ public class AdPlatformSDK {
                 if (callback != null) {
                     callback.onClick();
                 }
-                sendClickLog(adPosition, adCode);
+                String tmpAdPosition = adPosition;
+                if(AdPlatformSDK.this.adPosition != null){
+                    tmpAdPosition = AdPlatformSDK.this.adPosition;
+                }
+                sendClickLog(tmpAdPosition, adCode);
             }
 
             @Override
