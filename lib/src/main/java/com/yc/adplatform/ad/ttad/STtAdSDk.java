@@ -772,10 +772,16 @@ public class STtAdSDk implements ISGameSDK {
                     viewGroup = activity.getWindow().getDecorView().findViewById(android.R.id.content);
                 }
 
+
+
                 if (viewGroup != null) {
                     viewGroup.removeAllViews();
                     //把SplashView 添加到ViewGroup中,注意开屏广告view：width >=70%屏幕宽；height >=50%屏幕宽
                     viewGroup.addView(view);
+                }
+
+                if(callback != null){
+                    callback.onLoaded();
                 }
                 //设置不开启开屏广告倒计时功能以及不显示跳过按钮,如果这么设置，您需要自定义倒计时逻辑
                 //ad.setNotAllowSdkCountdown();
