@@ -107,6 +107,7 @@ public class AdPlatformSDK {
                 if (callback != null) {
                     callback.onDismissed();
                 }
+                AdPlatformSDK.this.adPosition = null;
             }
 
             @Override
@@ -121,7 +122,7 @@ public class AdPlatformSDK {
                 if (callback != null) {
                     callback.onComplete();
                 }
-                AdPlatformSDK.this.adPosition = null;
+
             }
 
             @Override

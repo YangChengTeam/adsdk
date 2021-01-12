@@ -735,7 +735,6 @@ public class STtAdSDk implements ISGameSDK {
         TTAdManagerHolder.get().createAdNative(mContext.get()).loadSplashAd(adSlot, new TTAdNative.SplashAdListener() {
             @Override
             public void onError(int code, String message) {
-                Log.d(TAG, message);
                 mHasLoaded = true;
                 AdError adError = new AdError();
                 adError.setMessage(message);
